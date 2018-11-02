@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Projeto</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label color="primary">Nome:</ion-label>
+            <ion-input type="text" placeholder="Nome do projeto" [(ngModel)]="nomeProjeto" name="nomeProjeto" required #nome="ngModel"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <ion-list [class.invisivel]="novo">
+        <ion-list-header>
+            Integrantes do Time
+        </ion-list-header>
+        <ion-item *ngFor="let e of time">
+            <ion-icon ios="ios-person" md="md-person"></ion-icon>
+            {{e.nome}}
+            <button ion-button item-end color="danger" (click)="deleteIntegrante(e.codigoIntegrante)">DELETAR</button>
+        </ion-item>
+        <ion-item text-center *ngIf="time.length < 1">
+            <ion-icon name="information-circle"></ion-icon>
+            <i>Ainda não há integrantes no time desse projeto.</i>
+        </ion-item>
+    </ion-list>
+    <ion-buttons>
+        <button id="addIntegrante" ion-button color="light" (click)="addIntegrante()" [class.invisivel]="novo">ADICIONAR INTEGRANTE</button>
+    </ion-buttons>
+
+
+    <ion-card class="alerta" *ngIf="!nome.valid && nome.dirty">
+        <ion-card-content>O nome do projeto não pode ficar em branco.</ion-card-content>
+    </ion-card>
+
+    <div id="mais">
+        <button ion-button round color="primary" (click)="incluir()" [disabled]="!nome.valid" [class.invisivel]="!novo"><ion-icon name="checkmark"></ion-icon></button>
+        <button ion-button round color="primary" (click)="alterar()" [disabled]="!nome.valid" [class.invisivel]="novo"><ion-icon name="checkmark"></ion-icon></button>
+        <button ion-button round color="danger" (click)="excluir()" [class.invisivel]="novo"><ion-icon name="trash"></ion-icon></button>
+    </div>
+</ion-content>

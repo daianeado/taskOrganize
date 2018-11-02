@@ -1,0 +1,81 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Info</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-segment [(ngModel)]="opcao">
+        <ion-segment-button value="sobre">
+            Sobre
+        </ion-segment-button>
+        <ion-segment-button value="contato">
+            Contato
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [class.invisivel]="opcao == 'contato'" text-center>
+        <br>
+        <h4>Bem vindo ao Task Organizer !</h4>
+        <p>Organizar seus projetos nunca foi tão fácil.</p>
+        <p>Com este aplicativo você poderá criar uma lista de projetos e seu time e gerenciá-los de forma rápida e prática. Além disso, uma lista de tarefas poderá ser criada para cada um dos projetos, informando a data final dessa tarefa e seu grau de prioridade.
+        </p>
+    </div>
+    <div [class.invisivel]="opcao == 'sobre'" *ngIf="opcao == 'contato'">
+        <div text-center class="col-md-6">
+            <br>
+            <h2>Nossos desevolvedores </h2>
+            <p> Entre em contato com nossos desenvolvedores ou através de nossas redes sociais oficiais.</p>
+            <ion-slides pager id="devs-img-contact">
+                <ion-slide class="dev-info">
+                    <img class="img-devs" src="https://lh3.googleusercontent.com/1_UtekEP7F3DziiX2Xuhci8CFL7XrXnoFjX3nJVQY2dxYaXzFGZfGmWaZsWf6387Kt1Xu_YscaBdXLJr0H3ygvOA_aKYJ6CcAL8qyhC-_5UtsJXXhl4B8YfoeCTe0GQQ1oZI2OqoWCGe-sA0o5_1xWBvnczHzmTv6x46HacpZnWu0MHO_CoS7ErvZB-g4SeYGsykjjabWMcJGCKZAKsgbI22h1Ab1VVyma71JTwEYspUTMieLY0kSif4s_pBiaHIRT0Vg4vSLR2DO1z3WLHwjwDVaGaZSKAFAhTVI_tXTwO1A6_V4_G8qbiWIGadObuGlC6nS_9N0bZouajzkp49bV6F4I5gnV1Fc8Rc294sNybRuaUyPZn70s6YqWt5hDvkD7osQAkkJNpunRXmm75eS5nnF-DaTj4EOqs3Sv00Iemgxgz9cN4LcLHzgDAX4_6u5oxGBrYQbuBwtOGUS_RYKjstoqm7skYkNXcdujbjFfD91M7-7gYdWWHPyQ2RK3DeK4YIdVGTIeJsZoqEQONQN3uEw8p77X9kp4AoTP4NmfnrJzWEfFuj6oyu2ctqBYEm-uZnnFLAnCjle_GqL0luI-3BUnnKRLB2MKYY3Q1n6xKfSK8zMeHVorlNducn76IhE_oX9RmqLSlIYycDILSV08dnag=s340-no">
+                    <h3>Daiane Oliveira</h3>
+                    <ion-icon ios="logo-whatsapp" md="logo-whatsapp"></ion-icon> (31) 99999-9999
+                </ion-slide>
+
+                <ion-slide class="dev-info">
+                    <img class="img-devs" src="">
+                    <h3>Jeferson Martins</h3>
+                    <ion-icon ios="logo-whatsapp" md="logo-whatsapp"></ion-icon> (31) 99999-9999
+                </ion-slide>
+            </ion-slides>
+        </div>
+        <div>
+            <p>
+
+                <a href="https://www.facebook.com">
+                    <ion-buttons class="buttons-social-media">
+                        <button ion-button icon-only clear>
+                              <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+                          </button>
+                    </ion-buttons>
+
+                </a>
+                <a href="https://www.instagram.com">
+                    <ion-buttons class="buttons-social-media">
+                        <button ion-button icon-only clear>
+                              <ion-icon ios="logo-instagram" md="logo-instagram"></ion-icon>
+                          </button>
+                    </ion-buttons>
+                </a>
+                <a href="https://www.twitter.com">
+                    <ion-buttons class="buttons-social-media">
+                        <button ion-button icon-only clear>
+                              <ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon>
+                          </button>
+                    </ion-buttons>
+                </a>
+                <a href="https://www.youtube.com">
+                    <ion-buttons class="buttons-social-media">
+                        <button ion-button icon-only clear>
+                              <ion-icon ios="logo-youtube" md="logo-youtube"></ion-icon>
+                          </button>
+                    </ion-buttons>
+                </a>
+            </p>
+        </div>
+    </div>
+</ion-content>
